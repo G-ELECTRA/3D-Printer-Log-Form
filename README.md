@@ -10,7 +10,7 @@ A modern, serverless web form for logging and managing 3D printer usage. This sy
 
 ---
 
-### **[► View Live Demo](https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY-NAME/)** 
+### **[► View Live Demo](https://g-electra.github.io/3D-Printer-Log-Form/)** 
 
 ---
 
