@@ -11,7 +11,6 @@ A modern, serverless web form for logging and managing 3D printer usage. This sy
 ---
 
 ### **[► View Live Demo](https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPOSITORY-NAME/)** 
-*(Replace with your actual GitHub Pages link)*
 
 ---
 
