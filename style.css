@@ -1,0 +1,170 @@
+/* --- THEME COLOR PALETTES (Unchanged) --- */
+:root {
+  --primary-color: #1a73e8;
+  --primary-hover: #1558b8;
+  --grid-color: rgba(26, 115, 232, 0.2);
+  --background-color: #f0f2f5;
+  --form-background: #ffffff;
+  --text-color: #202124;
+  --label-color: #5f6368;
+  --input-border-color: #ccc;
+  --input-focus-shadow: rgba(26, 115, 232, 0.25);
+  --success-bg: #e6f4ea;
+  --success-text: #1e8e3e;
+  --error-bg: #fce8e6;
+  --error-text: #d93025;
+}
+
+[data-theme="dark"] {
+  --primary-color: #8ab4f8;
+  --primary-hover: #a5c7fa;
+  --grid-color: rgba(138, 180, 248, 0.15);
+  --background-color: #1a1a1e;
+  --form-background: #27282c;
+  --text-color: #e8eaed;
+  --label-color: #bdc1c6;
+  --input-border-color: #5f6368;
+  --input-focus-shadow: rgba(138, 180, 248, 0.25);
+  --success-bg: #1e3d2a;
+  --success-text: #81c995;
+  --error-bg: #492a2a;
+  --error-text: #f28b82;
+}
+
+/* --- GLOBAL LAYOUT FIX --- */
+html {
+  overflow-x: hidden; /* Apply the overflow fix here */
+}
+
+/* --- BODY AND PAGE SETUP --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+  box-sizing: border-box;
+}
+
+/* --- THE NEW, SEPARATED BACKGROUND GRID --- */
+.background-grid {
+  content: '';
+  position: fixed; /* Use 'fixed' to lock it to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;   /* Cover the full viewport width */
+  height: 100vh;  /* Cover the full viewport height */
+  z-index: -1;    /* Sit BEHIND all other content */
+  
+  /* Apply the animation directly as a background */
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  
+  /* Animation moves the background position */
+  animation: grid-animation 20s linear infinite;
+}
+
+@keyframes grid-animation {
+  from { background-position: 0 0; }
+  to { background-position: 50px 100px; } /* Animate to a different position */
+}
+
+
+/* --- THEME SWITCHER BUTTON (No Changes) --- */
+.theme-switcher {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: var(--form-background);
+  border: 1px solid var(--input-border-color);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  padding: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+.theme-switcher:hover { transform: scale(1.1); }
+.light-icon, .dark-icon { display: none; }
+[data-theme="light"] .light-icon { display: block; }
+[data-theme="dark"] .dark-icon { display: block; }
+
+/* --- FORM CONTAINER & LOGO (No Changes) --- */
+#log-form-container {
+  background: var(--form-background);
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+  transition: background-color 0.3s;
+  position: relative;
+  box-sizing: border-box;
+}
+.logo-container { text-align: center; margin-bottom: 1em; }
+.logo-container img { max-width: 90px; height: auto; }
+h1 { text-align: center; color: var(--primary-color); margin-block: 0 1.5em; font-weight: 700; }
+
+/* --- FORM ELEMENTS & INPUTS (No Changes) --- */
+.form-group { margin-bottom: 1.5em; }
+label { display: block; margin-bottom: 0.6em; font-weight: 600; font-size: 0.9em; color: var(--label-color); }
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 1em;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--input-focus-shadow);
+}
+textarea { resize: vertical; min-height: 90px; }
+select { cursor: pointer; }
+
+/* --- BUTTONS & MESSAGES (No Changes) --- */
+button[type="submit"] { width: 100%; padding: 14px; border: none; background: var(--primary-color); color: #fff; border-radius: 8px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: background-color 0.3s; }
+button:disabled { background-color: #999; cursor: not-allowed; }
+button:hover:not(:disabled) { background-color: var(--primary-hover); }
+#message { text-align: center; padding: 12px; border-radius: 8px; margin-top: 1em; font-weight: 500; }
+.message-success { background-color: var(--success-bg); color: var(--success-text); }
+.message-error { background-color: var(--error-bg); color: var(--error-text); }
+.hidden { display: none; }
+
+/* --- MOBILE OPTIMIZATION (Updated) --- */
+@media (max-width: 640px) {
+  body {
+    padding-inline: 15px;
+    align-items: flex-start;
+  }
+  .background-grid {
+    background-size: 40px 40px; /* Make grid smaller on mobile */
+  }
+  #log-form-container {
+    padding: 2em 1.5em;
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+  .theme-switcher {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}

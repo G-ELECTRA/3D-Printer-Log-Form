@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Printer Log Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- THIS IS THE NEW, DEDICATED ELEMENT FOR THE ANIMATION -->
+    <div class="background-grid"></div> 
+    
+    <!-- All other content remains exactly the same -->
+    <button class="theme-switcher" id="themeSwitcher">
+        <span class="light-icon">☀️</span>
+        <span class="dark-icon">🌙</span>
+    </button>
+
+    <div id="log-form-container">
+       <!-- ... the rest of your form ... -->
+        <div class="logo-container">
+            <img src="logo.png" alt="Club Logo">
+        </div>
+        <h1>3D Printer Log Form</h1>
+
+        <form id="logForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gitamMail">Gitam Mail ID</label>
+                <input type="email" id="gitamMail" name="gitamMail" required pattern=".+@(gitam\.edu|gitam\.in|student\.gitam\.edu)" title="Please use a valid GITAM email address">
+            </div>
+
+            <div class="form-group">
+                <label for="team">Which team are you from?</label>
+                <select id="team" name="team" required>
+                    <option value="" disabled selected>Select a team</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Content Craft">Content Craft</option>
+                    <option value="Innovatech (Software)">Innovatech (Software)</option>
+                    <option value="Innovatech (Hardware)">Innovatech (Hardware)</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="EB Member">EB Member</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="printTime">Estimated Print Time (e.g., 2 hours 30 mins)</label>
+                <input type="text" id="printTime" name="printTime" required>
+            </div>
+
+            <div class="form-group">
+                <label for="purpose">Purpose of Print</label>
+                <textarea id="purpose" name="purpose" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="permission">Permission Taken From</label>
+                <select id="permission" name="permission" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="President">President</option>
+                    <option value="Vice President">Vice President</option>
+                    <option value="Innovatech Lead">Innovatech Lead</option>
+                    <option value="Naresh Sir">Naresh Sir</option>
+                    <option value="Anith Mam">Anith Mam</option>
+                    <option value="HOD">HOD</option>
+                    <option value="Lab Incharge">Lab Incharge</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filamentSource">Whose filament are you using?</label>
+                <select id="filamentSource" name="filamentSource" required>
+                    <option value="" disabled selected>Select a source</option>
+                    <option value="Clubs">Club's</option>
+                    <option value="Own">Own Filament</option>
+                </select>
+            </div>
+
+            <div id="filamentDetailsSection" class="form-group hidden">
+                <div id="clubFilamentWrapper">
+                    <label for="clubFilament">Select Club Filament</label>
+                    <select id="clubFilament" name="clubFilament"></select>
+                </div>
+                <div id="manualFilamentWrapper" class="hidden">
+                    <label for="manualFilament">Enter Your Filament Details</label>
+                    <input type="text" id="manualFilament" name="manualFilament">
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit</button>
+            <div id="message"></div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
