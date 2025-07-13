@@ -13,10 +13,6 @@ A modern, serverless web form for logging and managing 3D printer usage. This sy
 ### **[► View Live Demo](https://g-electra.github.io/3D-Printer-Log-Form/)** 
 
 ---
-
-
-*(It is highly recommended to replace this with a screenshot of your own finished form)*
-
 ## Core Features
 
 -   **Serverless Architecture:** No need for a dedicated server or hosting plan. Runs entirely on GitHub Pages and Google's infrastructure.
